@@ -1,0 +1,277 @@
+$primary-color: #69f09e;
+$secondary-color: #a9aca53d;
+
+@mixin typography {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 10px;
+}
+
+@mixin mobile-only {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin tablet-only {
+    @media screen and (min-width: 768px) and (max-width: 1024px)  {
+      @content;
+    }
+  }
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  font-size: 50px;
+  @include mobile-only {
+    width: 100%;
+  }
+  .name{
+    margin-bottom: auto;
+  }
+}
+img{
+    border-radius: 50%;
+    width: 210px;
+    height: 220px;
+    margin: 60px 50px;
+    border: 5px solid  black;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.5);
+    cursor: pointer;
+    transition: .5s;
+    user-select: none;
+    filter: grayscale(100%);
+    @include mobile-only {
+      margin: 60px 80px;
+    }
+  
+  }
+  img:hover{
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    box-shadow: 3px 3px 20px rgba(0,0,0,.5);
+  }
+  
+  .extra {
+    margin-left: 10px;
+    color: #272727;
+    border: 2px dashed #272727;
+    box-sizing: border-box;
+    border-radius: 50%;
+    animation: ro 7s  infinite;
+  
+  }
+  
+  @keyframes ro {
+    
+    0%{
+      transform: rotate(0);
+    }
+    100%{
+      transform: rotate(360deg);
+      background-color: white;
+    }
+  }
+  .round {
+    margin: 20px;
+    
+  }
+
+  
+
+.container {
+  display: flex;
+  width: 100%;
+
+  justify-content: stretch;
+  .biography {
+    width: 500px;
+    background-color: $primary-color;
+  
+    @include mobile-only {
+      margin: 0 auto;
+      width: 100%;
+      padding: 0px;
+    }
+  }
+  @include mobile-only {
+    flex-direction: column;
+  }
+  @include tablet-only{
+      flex-direction: row;
+      width: 100%;
+      margin:0 auto;
+  }
+  .fas {
+    padding: 15px;
+  }
+  .information {
+    background-color: #272727;
+    color: #687971;
+    text-align: center;
+    padding: 5px;
+    @include mobile-only {
+      width: 100%;
+    }
+    @include tablet-only {
+    
+      width: 100%;
+      padding: 0px;
+    }
+  }
+  .detail {
+    font-size: 14px;
+    padding-left: 10px;
+    @include mobile-only {
+      width: 90%;
+    }
+    @include tablet-only {
+      width: 95%;
+    }
+  }
+  #hobbies {
+    margin-top: 250px;
+    @include tablet-only {
+      margin-top: 20px;
+    }
+  }
+  .knowledge-attainment {
+    width: 100%;
+    margin: 0px;
+    padding:10px;
+    background-color: $secondary-color;
+    @include mobile-only {
+      width: 100%;
+      padding-left: 10px;
+    }
+    @include tablet-only {
+      width: 100%;
+      margin: 0px;
+    
+    }
+  }
+  .education {
+    @include typography;
+    @include mobile-only {
+      display: block;
+      width: 90%;
+    }
+    @include tablet-only {
+      width: 100%;
+    }
+  }
+  #under {
+    text-decoration: underline;
+    text-decoration-color: $primary-color;
+  }
+  
+.expertise {
+
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  animation: expertise 2s linear infinite;
+}
+@keyframes expertise {
+  0% {
+    color: $primary-color
+  }
+  
+}
+  .experience {
+    @include typography;
+    @include mobile-only {
+      display: block;
+      width: 90%;
+    }
+    @include tablet-only {
+      display: block;
+      width: 600px;
+    }
+  }
+  .reference {
+    @include typography;
+    @include mobile-only {
+      display: block;
+      width: 90%;
+      @include tablet-only {
+        display: block;
+        width: 90%;
+      }
+    }
+  }
+  .personal {
+    border-bottom: 1px solid $primary-color;
+    padding: 5px;
+    margin-top: 10px;
+    @include mobile-only {
+      width: 90%;
+      margin-top: 0px;
+    }
+    @include tablet-only {
+      margin-top: 30px;
+      width: 95%;
+    }
+  }
+  .time {
+    display: flex;
+    padding-left: 5px;
+    align-items: center;
+  }
+  .time div {
+    margin-left: 5px;
+  }
+  .interest {
+      display: flex;
+    
+    @include tablet-only {
+      margin-left: 25px;
+    }
+  }
+  #skill {
+    @include tablet-only {
+     width: 97%;
+    }
+  }
+  #degree {
+      @include tablet-only {
+          width: 97%;
+      }
+  }
+  #work {
+      @include tablet-only {
+          width: 97%;
+      }
+  }
+  nav a{
+    
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+    background-color: black;
+    border-radius: 7%;
+    
+  }
+   nav a:visited{
+    color: cyan;
+  }
+   nav a.active-link{
+  color:red;
+  text-decoration: underline;
+  }
+
+   
+
+  
+}
